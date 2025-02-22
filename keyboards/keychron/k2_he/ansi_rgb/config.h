@@ -55,4 +55,18 @@
 #    define RGB_MATRIX_KEYPRESSES
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 
+/* Caps Word Configuration */
+#    define CAPS_WORD_INVERT_ON_SHIFT
+#    define CAPS_WORD_IDLE_TIMEOUT 10000
+
+/* Mouse Keys Configuration */
+#    define MOUSEKEY_INERTIA
+#    define MOUSEKEY_DELAY 100
+#    define MOUSEKEY_MAX_SPEED 16
+#    define MOUSEKEY_TIME_TO_MAX 32
+#    define MOUSEKEY_FRICTION 12
+
+/* Tap-Hold Configuration */
+#    define TAPPING_TERM 220
+
 #endif
