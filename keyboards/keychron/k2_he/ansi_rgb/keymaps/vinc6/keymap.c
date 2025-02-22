@@ -18,9 +18,9 @@
 #include "keychron_common.h"
 // #include "keymap_japanese.h"
 
-#define CMDBSPC LT(0,KC_DEL)
+#define DEL_G_BSPC LT(0,KC_DEL)
 #define INPUT_S LT(0,KC_NO)
-#define LCTL_CW CTL_T(KC_NO)
+#define CW_LCTL CTL_T(KC_NO)
 
 enum layers {
     MAC_BASE,
@@ -41,12 +41,12 @@ enum my_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MAC_BASE] = LAYOUT_ansi_84(
-            KC_ESC,         KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD,     RGB_VAD, RGB_VAI, KC_MPRV,      KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,    KC_VOLU, SCRSHOT, CMDBSPC, INPUT_S,
-            KC_GRV,         KC_1,     KC_2,     KC_3,     KC_4,         KC_5,    KC_6,    KC_7,         KC_8,    KC_9,    KC_0,     KC_MINS,    KC_EQL,  KC_BSPC,          KC_PGUP,
-            SCMD_T(KC_TAB), KC_Q,     KC_W,     KC_E,     KC_R,         KC_T,    KC_Y,    KC_U,         KC_I,    KC_O,    KC_P,     KC_LBRC,    KC_RBRC, KC_BSLS,          KC_PGDN,
-            LCTL_CW,        KC_A,     KC_S,     KC_D,     LSFT_T(KC_F), KC_G,    KC_H,    RSFT_T(KC_J), KC_K,    KC_L,    KC_SCLN,  KC_QUOT,             KC_ENT,           KC_HOME,
-            KC_LSFT,                  KC_Z,     KC_X,     KC_C,         KC_V,    KC_B,    KC_N,         KC_M,    KC_COMM, KC_DOT,   KC_SLSH,             KC_RSFT, KC_UP,   KC_END,
-            MO(MAC_FN),     KC_LOPTN, KC_LCMMD,                                  KC_SPC,                                  KC_RCMMD, MO(MAC_FN), KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT),
+            KC_ESC,         KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD,     RGB_VAD, RGB_VAI, KC_MPRV,      KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,    KC_VOLU, SCRSHOT, DEL_G_BSPC, INPUT_S,
+            KC_GRV,         KC_1,     KC_2,     KC_3,     KC_4,         KC_5,    KC_6,    KC_7,         KC_8,    KC_9,    KC_0,     KC_MINS,    KC_EQL,  KC_BSPC,             KC_PGUP,
+            SCMD_T(KC_TAB), KC_Q,     KC_W,     KC_E,     KC_R,         KC_T,    KC_Y,    KC_U,         KC_I,    KC_O,    KC_P,     KC_LBRC,    KC_RBRC, KC_BSLS,             KC_PGDN,
+            CW_LCTL,        KC_A,     KC_S,     KC_D,     LSFT_T(KC_F), KC_G,    KC_H,    RSFT_T(KC_J), KC_K,    KC_L,    KC_SCLN,  KC_QUOT,             KC_ENT,              KC_HOME,
+            KC_LSFT,                  KC_Z,     KC_X,     KC_C,         KC_V,    KC_B,    KC_N,         KC_M,    KC_COMM, KC_DOT,   KC_SLSH,             KC_RSFT, KC_UP,      KC_END,
+            MO(MAC_FN),     KC_LOPTN, KC_LCMMD,                                  KC_SPC,                                  KC_RCMMD, MO(MAC_FN), KC_RCTL, KC_LEFT, KC_DOWN,    KC_RGHT),
 
     [MAC_FN] = LAYOUT_ansi_84(
             _______,    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,    _______,    PPXT_AI,
@@ -57,12 +57,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             _______,    _______,  _______,                                _______,                                _______,  _______,  _______,  KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT),
 
     [WIN_BASE] = LAYOUT_ansi_84(
-            KC_ESC,         KC_F1,    KC_F2,    KC_F3,    KC_F4,        KC_F5,   KC_F6,   KC_F7,        KC_F8,   KC_F9,   KC_F10,   KC_F11,     KC_F12,  MSPAINT, KC_DEL,  KC_INS,
-            KC_GRV,         KC_1,     KC_2,     KC_3,     KC_4,         KC_5,    KC_6,    KC_7,         KC_8,    KC_9,    KC_0,     KC_MINS,    KC_EQL,  KC_BSPC,          KC_PGUP,
-            KC_TAB,         KC_Q,     KC_W,     KC_E,     KC_R,         KC_T,    KC_Y,    KC_U,         KC_I,    KC_O,    KC_P,     KC_LBRC,    KC_RBRC, KC_BSLS,          KC_PGDN,
-            LCTL_CW,        KC_A,     KC_S,     KC_D,     LSFT_T(KC_F), KC_G,    KC_H,    RSFT_T(KC_J), KC_K,    KC_L,    KC_SCLN,  KC_QUOT,             KC_ENT,           KC_HOME,
-            KC_LSFT,                  KC_Z,     KC_X,     KC_C,         KC_V,    KC_B,    KC_N,         KC_M,    KC_COMM, KC_DOT,   KC_SLSH,             KC_RSFT, KC_UP,   KC_END,
-            MO(WIN_FN),     KC_LGUI,  KC_LALT,                                   KC_SPC,                                  KC_RALT,  MO(WIN_FN), KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT),
+            KC_ESC,         KC_F1,    KC_F2,    KC_F3,    KC_F4,        KC_F5,   KC_F6,   KC_F7,        KC_F8,   KC_F9,   KC_F10,   KC_F11,     KC_F12,  MSPAINT, KC_DEL,     KC_INS,
+            KC_GRV,         KC_1,     KC_2,     KC_3,     KC_4,         KC_5,    KC_6,    KC_7,         KC_8,    KC_9,    KC_0,     KC_MINS,    KC_EQL,  KC_BSPC,             KC_PGUP,
+            KC_TAB,         KC_Q,     KC_W,     KC_E,     KC_R,         KC_T,    KC_Y,    KC_U,         KC_I,    KC_O,    KC_P,     KC_LBRC,    KC_RBRC, KC_BSLS,             KC_PGDN,
+            CW_LCTL,        KC_A,     KC_S,     KC_D,     LSFT_T(KC_F), KC_G,    KC_H,    RSFT_T(KC_J), KC_K,    KC_L,    KC_SCLN,  KC_QUOT,             KC_ENT,              KC_HOME,
+            KC_LSFT,                  KC_Z,     KC_X,     KC_C,         KC_V,    KC_B,    KC_N,         KC_M,    KC_COMM, KC_DOT,   KC_SLSH,             KC_RSFT, KC_UP,      KC_END,
+            MO(WIN_FN),     KC_LGUI,  KC_LALT,                                   KC_SPC,                                  KC_RALT,  MO(WIN_FN), KC_RCTL, KC_LEFT, KC_DOWN,    KC_RGHT),
 
     [WIN_FN] = LAYOUT_ansi_84(
             _______,    KC_BRID,  KC_BRIU,  KC_TASK,  KC_FILE,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_PSCR,    _______,    _______,
@@ -92,7 +92,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
 
         // intercept hold function to send Command-Backspace
-        case CMDBSPC:
+        case DEL_G_BSPC:
             if (!record->tap.count && record->event.pressed) {
                 tap_code16(LCMD(KC_BSPC));
             }
@@ -106,7 +106,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
-        case LCTL_CW:
+        case CW_LCTL:
             if (record->tap.count && record->event.pressed) {
                 caps_word_toggle(); // toggle Caps Word on tap
                 return false;       // return false to ignore further processing of key
@@ -131,6 +131,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
+        // capture active window and paste to MS Paint
         case MSPAINT:
             if (record->event.pressed) {
                 register_code(KC_LALT);
