@@ -81,7 +81,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
 
-        // Take a screenshot on Mac
+        // take a screenshot on Mac
         case SCRSHOT:
             if (record->event.pressed) {
                 tap_code16(SCMD(KC_4));
