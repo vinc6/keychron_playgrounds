@@ -121,7 +121,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case WEBDICT:
             if (record->event.pressed) {
-                SEND_STRING(SS_LCMD("ct") SS_DELAY(80) "https://www.weblio.jp/content/" SS_LCMD("v") SS_DELAY(800) "\n");
+                SEND_STRING(SS_LCMD("ct") SS_DELAY(80) "https://jisho.org/search/" SS_LCMD("v") SS_DELAY(800) "\n");
             }
             break;
 
