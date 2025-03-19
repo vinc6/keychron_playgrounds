@@ -85,13 +85,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
     switch (keycode) {
-        // take a screenshot on mac
-        case SCRSHOT:
-            if (record->event.pressed) {
-                tap_code16(SCMD(KC_4));
-            } else {
-                tap_code(KC_SPC);
-                tap_code(KC_BTN1);
+        case CW_LCTL:
+            if (record->tap.count && record->event.pressed) {
+                caps_word_toggle();
+                return false;
             }
             break;
 
@@ -105,10 +102,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
-        case CW_LCTL:
-            if (record->tap.count && record->event.pressed) {
-                caps_word_toggle();
-                return false;
+        // take a screenshot on mac
+        case SCRSHOT:
+            if (record->event.pressed) {
+                tap_code16(SCMD(KC_4));
+            } else {
+                tap_code(KC_SPC);
+                tap_code(KC_BTN1);
             }
             break;
 
