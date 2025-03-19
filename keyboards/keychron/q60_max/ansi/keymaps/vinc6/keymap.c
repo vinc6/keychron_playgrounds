@@ -25,8 +25,8 @@ enum layers {
     MAC_FN,
     WIN_BASE,
     FN,
-    L3,
     L4,
+    L5,
 };
 
 enum my_keycodes {
@@ -45,10 +45,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_FN] = LAYOUT_ansi_60(
         _______, KC_BRID,  KC_BRIU,  KC_MCTRL,KC_LNPAD,RGB_VAD, RGB_VAI, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD,  KC_VOLU,   WEBDICT, INPUT_S,
-        KC_CAPS, BT_HST1,  BT_HST2,  BT_HST3, P2P4G,   _______, _______, _______, SCRSHOT, KC_SCRL, KC_PAUS, KC_UP,    _______,            KC_DEL,
+        KC_CAPS, BT_HST1,  BT_HST2,  BT_HST3, P2P4G,   BAT_LVL, _______, _______, SCRSHOT, KC_SCRL, KC_PAUS, KC_UP,    _______,            KC_DEL,
         _______, KC_VOLD,  KC_VOLU,  KC_MUTE, KC_EJCT, _______, _______, _______, KC_HOME, KC_PGUP, KC_LEFT, KC_RIGHT,                     _______,
         _______,           _______,  _______, _______, _______, RGB_TOG, RGB_MOD, RGB_RMOD,KC_END,  KC_PGDN, KC_DOWN,             _______, _______,
-                           _______,  _______,                            BAT_LVL,                            _______,  _______),
+                           _______,  _______,                            OSL(FN),                            _______,  _______),
 
     [WIN_BASE] = LAYOUT_ansi_60(
         KC_ESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,  KC_EQL,    KC_BSLS, KC_GRV,
@@ -59,19 +59,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [FN] = LAYOUT_ansi_60(
         _______, KC_F1,    KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,    KC_INS,  KC_DEL,
-        KC_CAPS, BT_HST1,  BT_HST2,  BT_HST3, P2P4G,   _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, KC_UP,    _______,            KC_BSPC,
-        RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, _______, _______, _______, KC_HOME, KC_PGUP, KC_LEFT, KC_RIGHT,                     _______,
-        _______,           RGB_RMOD, RGB_VAD, RGB_HUD, RGB_SAD, BAT_LVL, NK_TOGG, _______, KC_END,  KC_PGDN, KC_DOWN,             _______, _______,
+        KC_CAPS, BT_HST1,  BT_HST2,  BT_HST3, P2P4G,   BAT_LVL, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, KC_UP,    _______,            KC_BSPC,
+        _______, KC_VOLD,  KC_VOLU,  KC_MUTE, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_LEFT, KC_RIGHT,                     _______,
+        _______,           _______,  _______, _______, _______, RGB_TOG, RGB_MOD, RGB_RMOD,KC_END,  KC_PGDN, KC_DOWN,             _______, _______,
                            _______,  _______,                            _______,                            _______,  _______),
 
-    [L3] = LAYOUT_ansi_60(
+    [L4] = LAYOUT_ansi_60(
         _______, _______,  _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,   _______, _______,
         _______, _______,  _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,            _______,
         _______, _______,  _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,                      _______,
         _______,           _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,             _______, _______,
                            _______,  _______,                            _______,                            _______,  _______),
 
-    [L4] = LAYOUT_ansi_60(
+    [L5] = LAYOUT_ansi_60(
         _______, _______,  _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,   _______, _______,
         _______, _______,  _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,            _______,
         _______, _______,  _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,                      _______,
