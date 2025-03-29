@@ -87,11 +87,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case INPUT_S:
             if (record->tap.count && record->event.pressed) {
-                // tap select next source in input menu
-                tap_code16(LCA(KC_SPC));
-            } else if (record->event.pressed) {
-                // hold select the previous input source
+                // tap select the previous input source
                 tap_code16_delay(LCTL(KC_SPC),1000);
+            } else if (record->event.pressed) {
+                // hold select next source in input menu
+                tap_code16(LCA(KC_SPC));
             }
             break;
 
