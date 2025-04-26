@@ -1,0 +1,4 @@
+#   define CAPS_WORD_INVERT_ON_SHIFT
+#   define CAPS_WORD_IDLE_TIMEOUT 10000
+
+#   define TAPPING_TERM 175
