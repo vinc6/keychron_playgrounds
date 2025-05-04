@@ -17,9 +17,11 @@
 #include QMK_KEYBOARD_H
 #include "keychron_common.h"
 
+#define KC_PAUS LT(0,KC_NO)
+#define KC_STOP LCTL(KC_C)
+#define KC_CLEAR LCTL(KC_L)
 #define CW_LCTL CTL_T(KC_NO)
-#define INPUT_S LT(0,KC_NO)
-#define SYS_POW KC_KB_POWER
+#define INPUT_S LT(0,KC_TRNS)
 #define TAB_SCMD SCMD_T(KC_TAB)
 
 enum layers {
@@ -45,11 +47,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LOPTN, KC_LCMMD,                           KC_SPC,                             KC_RCMMD, KC_ROPTN),
 
     [MAC_FN] = LAYOUT_ansi_60(
-        SYS_POW, KC_BRID,  KC_BRIU,  KC_MCTRL,KC_LNPAD,RGB_VAD, RGB_VAI, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD,  KC_VOLU,   WEBDICT, INPUT_S,
-        KC_CAPS, BT_HST1,  BT_HST2,  BT_HST3, P2P4G,   _______, _______, _______, SCRSHOT, KC_SCRL, C(KC_C), KC_UP,    _______,            KC_DEL,
+        KC_PWR,  KC_BRID,  KC_BRIU,  KC_MCTRL,KC_LNPAD,RGB_VAD, RGB_VAI, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD,  KC_VOLU,   KC_INS,  KC_DEL,
+        KC_CAPS, BT_HST1,  BT_HST2,  BT_HST3, P2P4G,   _______, _______, _______, SCRSHOT, KC_SCRL, KC_PAUS, KC_UP,    _______,            KC_CLEAR,
         _______, KC_VOLD,  KC_VOLU,  KC_MUTE, KC_EJCT, _______, BAT_LVL, RGB_TOG, KC_HOME, KC_PGUP, KC_LEFT, KC_RIGHT,                     _______,
-        _______,           _______,  _______, _______, _______, _______, RGB_MOD, RGB_RMOD,KC_END,  KC_PGDN, KC_DOWN,             _______, _______,
-                           _______,  _______,                            OSL(FN),                            C(KC_D),  _______),
+        _______,           _______,  _______, _______, _______, _______, RGB_MOD, RGB_RMOD,KC_END,  KC_PGDN, KC_DOWN,             INPUT_S, _______,
+                           _______,  _______,                            OSL(FN),                            KC_STOP,  WEBDICT),
 
     [WIN_BASE] = LAYOUT_ansi_60(
         KC_ESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,  KC_EQL,    KC_BSLS, KC_GRV,
@@ -79,6 +81,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
     switch (keycode) {
+        case KC_PAUS:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(LCTL(KC_S));
+            } else if (record->event.pressed) {
+                tap_code16(LCTL(KC_Q));
+            }
+            break;
+
         case CW_LCTL:
             if (record->tap.count && record->event.pressed) {
                 caps_word_toggle();
@@ -88,11 +98,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case INPUT_S:
             if (record->tap.count && record->event.pressed) {
-                // tap select the previous input source
-                tap_code16_delay(LCTL(KC_SPC),500);
-            } else if (record->event.pressed) {
-                // hold select next source in input menu
+                // tap select next source in input menu
                 tap_code16(LCA(KC_SPC));
+            } else if (record->event.pressed) {
+                // hold select the previous input source
+                tap_code16_delay(LCTL(KC_SPC),500);
             }
             break;
 
